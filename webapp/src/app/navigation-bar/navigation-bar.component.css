@@ -1,5 +1,7 @@
 #navigationBar{
  background: #29262B;
+  position: fixed;
+  z-index: 100;
 }
 
 .nav-buttons{
@@ -28,12 +30,13 @@ span{
 }
 
 .menu-container{
-  position: absolute;
+  position: fixed;
   top: 62px;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: initial;
+  z-index: -1;
 }
 
 .menu-sidenav{

@@ -1,0 +1,47 @@
+.main-container{
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+.conference-container{
+  margin-top: 5vh;
+  grid-column: 2/3;
+  background: #ebebeb;
+  height: 160vh;
+}
+
+
+.conference-item{
+  margin: 5vh 5vw 5vh 5vw;
+  background: #29262B;
+}
+
+mat-card-content p{
+  font-size: medium;
+}
+
+.date-paragraph{
+  color: #E22012;
+}
+
+mat-card-title{
+  font-size: large;
+  font-weight: bolder;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #E22012;
+}
+
+mat-card-subtitle{
+  font-size: medium;
+  font-weight: bold;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #92140C;
+}
+
+.interact-object{
+  background: #858585;
+  color: #92140C;
+  font-family: 'Roboto Mono',SansSerif,Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  font-size: large;
+}
