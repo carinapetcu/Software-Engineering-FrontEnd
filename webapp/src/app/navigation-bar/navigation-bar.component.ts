@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -10,7 +11,9 @@ export class NavigationBarComponent implements OnInit {
   private logged = true;
 
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -25,11 +28,19 @@ export class NavigationBarComponent implements OnInit {
     return this.logged;
   }
 
-  redirectToLogin() {
-
+  redirectToLogin(): void {
+    this.router.navigate(['/login']);
   }
 
-  redirectToRegister() {
+  redirectToRegister(): void {
+    this.router.navigate(['/register']);
+  }
 
+  redirectToHome(): void {
+    this.router.navigate(['/home']);
+  }
+
+  signOut(): void {
+    this.logged = !this.logged;
   }
 }

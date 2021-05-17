@@ -14,12 +14,17 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
-
+import { RegisterComponent } from './register/register.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {MatInputModule} from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,11 @@ import {MatCardModule} from '@angular/material/card';
     MatGridListModule,
     MatDividerModule,
     MatCardModule,
+    MatFormFieldModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

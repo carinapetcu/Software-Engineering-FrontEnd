@@ -2,6 +2,7 @@
  background: #29262B;
   position: fixed;
   z-index: 100;
+  box-shadow: 0 3px #92140C;
 }
 
 .nav-buttons{

@@ -3,7 +3,7 @@
     <button *ngIf="navDisplay()" (click)="sidenav.toggle()"  mat-button mat-icon-button class="example-icon more-button" style="color: #E22012;" aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
-    <span>ConferenceMS</span>
+    <span (click)="redirectToHome()">ConferenceMS</span>
     <span class="spacer"></span>
     <button  *ngIf="!navDisplay()" mat-raised-button class="interact-object nav-buttons" (click)="redirectToLogin()">
       Login
@@ -53,7 +53,7 @@
           <mat-divider></mat-divider>
           <button mat-raised-button class="interact-object choice-button">Update my profile</button>
           <mat-divider></mat-divider>
-          <button mat-raised-button class="interact-object choice-button">Sign out</button>
+          <button mat-raised-button class="interact-object choice-button" (click)="sidenav.toggle();signOut()">Sign out</button>
         </mat-expansion-panel>
       </mat-accordion>
     </mat-sidenav>
