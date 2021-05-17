@@ -30,13 +30,13 @@ span{
 }
 
 .menu-container{
-  position: fixed;
+  position: absolute;
   top: 62px;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: initial;
-  z-index: -1;
+  width: 15vw;
 }
 
 .menu-sidenav{
