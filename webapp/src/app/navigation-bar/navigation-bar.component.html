@@ -1,0 +1,61 @@
+<div>
+  <mat-toolbar id="navigationBar">
+    <button *ngIf="navDisplay()" (click)="sidenav.toggle()"  mat-button mat-icon-button class="example-icon more-button" style="color: #E22012;" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span (click)="redirectToHome()">ConferenceMS</span>
+    <span class="spacer"></span>
+    <button  *ngIf="!navDisplay()" mat-raised-button class="interact-object nav-buttons" (click)="redirectToLogin()">
+      Login
+    </button>
+    <button *ngIf="!navDisplay()" mat-raised-button class="interact-object nav-buttons" (click)="redirectToRegister()">
+      Register
+    </button>
+  </mat-toolbar>
+  <mat-sidenav-container class="menu-container" autosize >
+    <mat-sidenav #sidenav mode="side" class="menu-sidenav" [fixedInViewport]="false">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Conferences
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <button mat-raised-button class="interact-object choice-button">My conferences</button>
+          <mat-divider></mat-divider>
+          <button mat-raised-button class="interact-object choice-button">On going conferences</button>
+          <mat-divider></mat-divider>
+          <button mat-raised-button class="interact-object choice-button">Create conference</button>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Papers
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <button mat-raised-button class="interact-object choice-button">Update my papers</button>
+          <mat-divider></mat-divider>
+          <button mat-raised-button class="interact-object choice-button">See my papers</button>
+          <mat-divider></mat-divider>
+          <button mat-raised-button class="interact-object choice-button">Paper reviews</button>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              My profile
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <button mat-raised-button class="interact-object choice-button">See my profile</button>
+          <mat-divider></mat-divider>
+          <button mat-raised-button class="interact-object choice-button">Update my profile</button>
+          <mat-divider></mat-divider>
+          <button mat-raised-button class="interact-object choice-button" (click)="sidenav.toggle();signOut()">Sign out</button>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-sidenav>
+  </mat-sidenav-container>
+</div>
