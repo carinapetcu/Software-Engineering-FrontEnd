@@ -1,0 +1,24 @@
+<div class="main-container">
+    <mat-card>
+    <mat-card-title>{{conference.name}}</mat-card-title><br>
+    <mat-card-subtitle>{{conference.edition}}</mat-card-subtitle>
+    <mat-card-content>
+      <p></p>
+      <p class="date-paragraph">Start date: {{conference.startDate + ' -> '}}</p>
+      <p class="date-paragraph">End date: {{conference.endDate}}</p>
+      <br>
+      <p class="description">{{conference.description}}</p><br>
+      <mat-card class="inner-card" *ngFor="let presentation of presentations">
+        <mat-card-title class="presentation-title">{{presentation.paperTitle}}</mat-card-title>
+        <mat-card-subtitle class="presentation-authors" *ngFor="let author of authors">{{author.name + '  '}}</mat-card-subtitle>
+        <mat-card-content>
+          <br>
+          <p class="presentation-description">{{presentation.paperDescription}}</p>
+          <br></mat-card-content>
+      </mat-card>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button class="interact-object">Enroll a paper</button><br><br><br><br>
+    </mat-card-actions>
+    </mat-card>
+</div>

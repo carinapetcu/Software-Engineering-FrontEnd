@@ -19,12 +19,16 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
+import { LoginComponent } from './login/login.component';
+import { ExpandDetailsComponent } from './expand-details/expand-details.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavigationBarComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent,
+    ExpandDetailsComponent
   ],
   imports: [
     BrowserModule,
