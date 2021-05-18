@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit {
   conferences: Array<Conference>;
 
 
-  constructor(private conferenceService: ConferenceService) {
+  constructor(
+    private conferenceService: ConferenceService) {
     this.errorMessage = '';
     this.conferences = new Array<Conference>();
   }

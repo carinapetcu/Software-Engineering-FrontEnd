@@ -11,7 +11,7 @@
   border-radius: 20%;
   text-align: center;
   display: grid;
-  grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 2fr 4fr 1fr 1fr 1fr;
   box-shadow: 5px 5px #858585;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .register-button p{
-  margin-top: 1.2vh;
+  margin-top: 1.5vh;
 }
 
 mat-form-field{

@@ -2,41 +2,44 @@
   <div id="page-grid">
     <div id="register-container">
       <div></div>
-      <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Full name</mat-label>
-          <input matInput required placeholder="e.g. John Doe">
-          <mat-icon matSuffix>face</mat-icon>
-          <mat-hint></mat-hint>
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Email</mat-label>
-          <input matInput required placeholder="john_doe@net.com">
-          <mat-icon matSuffix>mail</mat-icon>
-          <mat-hint></mat-hint>
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Username</mat-label>
-          <input matInput required placeholder="JohnDoe28">
-          <mat-icon matSuffix>account_circle</mat-icon>
-          <mat-hint>Logging will be done with this field</mat-hint>
-        </mat-form-field>
-      </p>
-      <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Password</mat-label>
-        <input matInput required [type]="hide ? 'password' : 'text'">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-      </mat-form-field>
-      </p>
+      <div [formGroup]="registerForm">
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Full name</mat-label>
+            <input matInput required placeholder="e.g. John Doe" formControlName="name">
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-hint></mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput required placeholder="john_doe@net.com" formControlName="email">
+            <mat-icon matSuffix>mail</mat-icon>
+            <mat-hint></mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput required placeholder="JohnDoe28" formControlName="username">
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-hint>Logging will be done with this field</mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput required [type]="hide ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </p>
+      </div>
       <div></div>
-      <button mat-raised-button class="interact-object register-button"><p>Register</p></button>
+      <button mat-raised-button class="interact-object register-button" (click)="registerUser()"><p>Register</p></button>
+      <div></div>
     </div>
   </div>
 </div>

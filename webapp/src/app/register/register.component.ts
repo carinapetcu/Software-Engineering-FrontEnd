@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {CMSUserService} from '../service/cmsuser.service';
 import {CMSUser} from '../domain/cmsuser.model';
 
@@ -11,8 +11,16 @@ import {CMSUser} from '../domain/cmsuser.model';
 export class RegisterComponent implements OnInit {
   hide = true;
   successfullyAdd: boolean;
+  registerForm = this.formBuilder.group({
+    name: new FormControl('', Validators.required),
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
+  });
 
-  constructor(private cmsuserService: CMSUserService) {
+  constructor(
+    private cmsuserService: CMSUserService,
+    private formBuilder: FormBuilder) {
     this.successfullyAdd = true;
   }
 
@@ -28,4 +36,10 @@ export class RegisterComponent implements OnInit {
     );
   }
 
+  registerUser(): void {
+    console.log(this.registerForm.controls.name.value);
+    console.log(this.registerForm.controls.username.value);
+    console.log(this.registerForm.controls.password.value);
+    console.log(this.registerForm.controls.email.value);
+  }
 }
