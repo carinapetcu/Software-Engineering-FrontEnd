@@ -27,19 +27,16 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addUser(fullName: string, email: string, username: string, password: string): void{
+  addUser(): void{
+    const fullName = this.registerForm.controls.name.value;
+    const email = this.registerForm.controls.email.value;
+    const username = this.registerForm.controls.username.value;
+    const password = this.registerForm.controls.password.value;
     const user: CMSUser = {id: 0, fullName, email, username, password} as CMSUser;
     this.cmsuserService.addUser(user).subscribe(
       response => {
         this.successfullyAdd = response.status === 200;
       }
     );
-  }
-
-  registerUser(): void {
-    console.log(this.registerForm.controls.name.value);
-    console.log(this.registerForm.controls.username.value);
-    console.log(this.registerForm.controls.password.value);
-    console.log(this.registerForm.controls.email.value);
   }
 }
