@@ -1,0 +1,50 @@
+#page-grid{
+  display: grid;
+  grid-template-columns: 5fr 4fr 5fr;
+}
+
+#login-container{
+  grid-column: 2/3;
+  margin-top: 10vh;
+  height: 80vh;
+  background: #343036;
+  border-radius: 20%;
+  text-align: center;
+  display: grid;
+  grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  box-shadow: 5px 5px #858585;
+}
+
+.interact-object{
+  background: #EBEBEB;
+  color: #E22012;
+  font-family: 'Roboto Mono',SansSerif,Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  font-size: large;
+  box-shadow: 3px 3px #858585;
+  border: 1px solid #29262B;
+}
+
+.login-button{
+  width: 15vw;
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+}
+
+.login-button p{
+  margin-top: 1.2vh;
+}
+
+mat-form-field{
+  background: #EBEBEB;
+  color: #92140C;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bolder;
+  font-size: medium;
+  width: 15vw;
+  box-shadow: 2px 4px #858585;
+}
+mat-label,input,mat-hint{
+  color: #92140C;
+}

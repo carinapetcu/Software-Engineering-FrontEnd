@@ -21,12 +21,16 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
 import {CMSUserService} from "./service/cmsuser.service";
 import {ConferenceService} from "./service/conference.service";
+import { ExpandDetailsComponent } from './expand-details/expand-details.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavigationBarComponent,
-    RegisterComponent
+    RegisterComponent,
+    ExpandDetailsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

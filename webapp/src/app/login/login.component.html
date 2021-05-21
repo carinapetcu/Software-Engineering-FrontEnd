@@ -1,0 +1,25 @@
+<div>
+  <div id="page-grid">
+    <div id="login-container">
+      <div></div>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput required placeholder="JohnDoe28">
+          <mat-icon matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput required [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </p>
+      <div></div>
+      <button mat-raised-button class="interact-object login-button"><p>Login</p></button>
+    </div>
+  </div>
+</div>
