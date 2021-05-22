@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {switchMap} from "rxjs/operators";
 
 @Component({
   selector: 'app-expand-details',
@@ -15,9 +17,16 @@ export class ExpandDetailsComponent implements OnInit {
 
   presentations = [{paperTitle: 'Paper Uno', paperDescription: 'Presentation for Paper Uno.'}];
   authors = [{name: 'Author X'}, {name: 'Author Y'}];
-  constructor() { }
+
+  // parametru pentru call-ul de backend
+  conferenceId = '';
+  constructor(
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.conferenceId = id == null ? '' : id;
   }
 
 }
