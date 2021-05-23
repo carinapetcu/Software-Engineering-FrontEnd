@@ -78,66 +78,185 @@
 
   <div id="menu">
     <div></div>
-    <button
-      class="interact-object"
-      mat-raised-button
-      (click)="changeView(0,'view')"
-      [style.background]=""
-    >
+    <button class="interact-object" mat-raised-button (click)="changeView(0,'view')">
       <mat-icon>keyboard_arrow_left</mat-icon>
       View Co-Chairs
     </button>
     <div></div>
-    <button
-      class="interact-object"
-      mat-raised-button
-      (click)="changeView(1,'view')"
-      [style.background]=""
-    >
+    <button class="interact-object" mat-raised-button (click)="changeView(1,'view')">
       <mat-icon>keyboard_arrow_left</mat-icon>
       View PC Members
     </button>
     <div></div>
-    <button
-      class="interact-object"
-      mat-raised-button
-      (click)="changeView(2,'view')"
-      [style.backgorund]=""
-    >
+    <button class="interact-object" mat-raised-button (click)="changeView(2,'view')">
       <mat-icon>keyboard_arrow_left</mat-icon>
       View Reviewers
     </button>
     <div></div>
-    <button
-      class="interact-object"
-      mat-raised-button
-      (click)="changeView(0,'add')"
-      [style.background]=""
-    >Add Co-Chair
+    <button class="interact-object" mat-raised-button (click)="changeView(0,'add')">
+      Add Co-Chair
       <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
     <div></div>
-    <button
-      class="interact-object"
-      mat-raised-button
-      (click)="changeView(1,'add')"
-      [style.background]=""
-    >Add PC Members
+    <button class="interact-object" mat-raised-button (click)="changeView(1,'add')">
+      Add PC Members
       <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
     <div></div>
-    <button
-      class="interact-object"
-      mat-raised-button
-      (click)="changeView(2,'add')"
-      [style.background]=""
-    >Add Reviewers
+    <button class="interact-object" mat-raised-button (click)="changeView(2,'add')">
+      Add Reviewers
       <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
-
+    <div></div>
+    <button class="interact-object" mat-raised-button (click)="redirectToPapers()">
+      See papers
+      <mat-icon>description</mat-icon>
+    </button>
   </div>
 
-  <div id="add-co-chairs-view" class="view-container" [style.display]="this.addArray[0]"></div>
-  <div id="add-pc-members-view" class="view-container" [style.display]="this.addArray[1]"></div>
-  <div id="add-reviewers-view" class="view-container" [style.display]="this.addArray[2]"></div>
+  <div id="add-co-chairs-view" class="view-container" [style.display]="this.addArray[0]">
+    <h2>Add Co-chair</h2>
+    <div [formGroup]="coChairForm">
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Full name</mat-label>
+          <input matInput required placeholder="John doe">
+          <mat-icon matSuffix>face</mat-icon>
+          <mat-hint></mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput required placeholder="john_doe@net.com" formControlName="email">
+          <mat-icon matSuffix>mail</mat-icon>
+          <mat-hint></mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput required placeholder="JohnDoe28" formControlName="username">
+          <mat-icon matSuffix>account_circle</mat-icon>
+          <mat-hint>Logging will be done with this field</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput required [type]="hide ? 'password' : 'text'" formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Affiliation</mat-label>
+          <input matInput placeholder="e.g. s.c ItProd s.r.l">
+          <mat-icon matSuffix>business_center</mat-icon>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Website</mat-label>
+          <input matInput placeholder="e.g. www.JohnDoeProgramming.com">
+          <mat-icon matSuffix>language</mat-icon>
+        </mat-form-field>
+      </p>
+      <button mat-raised-button class="interact-object">Add Co-chair</button>
+    </div>
+  </div>
+  <div id="add-pc-members-view" class="view-container" [style.display]="this.addArray[1]">
+    <h2>Add PC Member</h2>
+    <div [formGroup]="pcMemberForm">
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Full name</mat-label>
+          <input matInput required placeholder="John doe">
+          <mat-icon matSuffix>face</mat-icon>
+          <mat-hint></mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput required placeholder="john_doe@net.com" formControlName="email">
+          <mat-icon matSuffix>mail</mat-icon>
+          <mat-hint></mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput required placeholder="JohnDoe28" formControlName="username">
+          <mat-icon matSuffix>account_circle</mat-icon>
+          <mat-hint>Logging will be done with this field</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput required [type]="hide ? 'password' : 'text'" formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Affiliation</mat-label>
+          <input matInput placeholder="e.g. s.c ItProd s.r.l">
+          <mat-icon matSuffix>business_center</mat-icon>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Website</mat-label>
+          <input matInput placeholder="e.g. www.JohnDoeProgramming.com">
+          <mat-icon matSuffix>language</mat-icon>
+        </mat-form-field>
+      </p>
+      <button mat-raised-button class="interact-object">Add PC Member</button>
+    </div>
+  </div>
+  <div id="add-reviewers-view" class="view-container" [style.display]="this.addArray[2]">
+    <h2>Add Reviewer</h2>
+    <div [formGroup]="reviewerForm">
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Full name</mat-label>
+          <input matInput required placeholder="John doe">
+          <mat-icon matSuffix>face</mat-icon>
+          <mat-hint></mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput required placeholder="john_doe@net.com" formControlName="email">
+          <mat-icon matSuffix>mail</mat-icon>
+          <mat-hint></mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput required placeholder="JohnDoe28" formControlName="username">
+          <mat-icon matSuffix>account_circle</mat-icon>
+          <mat-hint>Logging will be done with this field</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput required [type]="hide ? 'password' : 'text'" formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </p>
+      <button mat-raised-button class="interact-object">Add Reviewer</button>
+    </div>
+  </div>
 </div>

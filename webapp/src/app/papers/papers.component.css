@@ -1,0 +1,36 @@
+#main-container{
+  display: grid;
+  grid-template-columns: 2fr 6fr 2fr;
+  background: #5c5c5c;
+}
+
+#papers-container{
+  grid-column: 2/3;
+  background: #29262B;
+  margin-top: 7vh;
+  height: 93vh;
+}
+
+ul{
+  list-style: none;
+}
+
+mat-cell{
+  text-align: center;
+}
+
+.interact-object{
+  background: #858585;
+  color: #92140C;
+  font-family: 'Roboto Mono',SansSerif,Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  font-size: large;
+  box-shadow: 0 2px #29262B;
+}
+
+.paper-row{
+  color: #E22012;
+  font-family: 'Roboto Mono', SansSerif, Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
+}
+

@@ -25,6 +25,7 @@ import { ExpandDetailsComponent } from './expand-details/expand-details.componen
 import { LoginComponent } from './login/login.component';
 import { MyConferencesComponent } from './my-conferences/my-conferences.component';
 import {MatTableModule} from '@angular/material/table';
+import { PapersComponent } from './papers/papers.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {MatTableModule} from '@angular/material/table';
     RegisterComponent,
     ExpandDetailsComponent,
     LoginComponent,
-    MyConferencesComponent
+    MyConferencesComponent,
+    PapersComponent
   ],
   imports: [
     BrowserModule,

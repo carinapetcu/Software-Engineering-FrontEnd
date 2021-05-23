@@ -10,7 +10,7 @@
   grid-column: 2/3;
   height: 93vh;
   display: grid;
-  grid-template-rows: 3fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 3fr;
+  grid-template-rows: 3fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 2fr 1fr 2fr;
 }
 
 #co-chairs-view{
@@ -48,6 +48,7 @@
   font-family: 'Roboto Mono',SansSerif,Roboto, "Helvetica Neue", sans-serif;
   font-weight: bold;
   font-size: large;
+  box-shadow: 3px 5px #29262B;
 }
 
 .users-table{
@@ -70,5 +71,24 @@
   font-weight: bold;
   font-size: large;
   margin-top: 5vh;
+
+}
+
+.view-container mat-cell,mat-header-cell{
+  color: #F04E42;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: normal;
+  font-size: large;
+}
+
+.view-container {
+  color: #92140C;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: normal;
+  font-size: medium;
+
+}
+
+.add-container{
 
 }

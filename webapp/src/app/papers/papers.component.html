@@ -1,0 +1,30 @@
+<div id="main-container">
+  <div id="papers-container">
+    <mat-table [dataSource]="papersExample">
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef class="interact-object">Title</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="paper-row">{{row.title}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="abstract">
+        <mat-header-cell *matHeaderCellDef class="interact-object">Download abstract</mat-header-cell>
+        <mat-cell *matCellDef="let row"  class="paper-row">
+          <button (click)="downloadAbstract(row.id)"  class="interact-object">
+            <mat-icon>cloud_download</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="authors">
+        <mat-header-cell *matHeaderCellDef class="interact-object">List of Authors</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="paper-row">
+          <ul>
+            <li *ngFor="let author of row.authors">{{author.fullName}}</li>
+          </ul>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="paperColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns:paperColumns"></mat-row>
+    </mat-table>
+  </div>
+</div>
+
