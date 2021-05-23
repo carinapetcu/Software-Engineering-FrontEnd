@@ -43,4 +43,8 @@ export class NavigationBarComponent implements OnInit {
   signOut(): void {
     this.logged = !this.logged;
   }
+
+  redirectToMyConference(): void {
+    this.router.navigate(['/myConference']);
+  }
 }

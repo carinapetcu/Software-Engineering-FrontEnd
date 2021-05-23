@@ -4,6 +4,8 @@ import {RegisterComponent} from './register/register.component';
 import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './login/login.component';
 import {ExpandDetailsComponent} from './expand-details/expand-details.component';
+import {MyConferencesComponent} from './my-conferences/my-conferences.component';
+import {PapersComponent} from './papers/papers.component';
 
 const routes: Routes = [
   {path: 'register' , component: RegisterComponent},
@@ -12,6 +14,8 @@ const routes: Routes = [
   {path: 'testRegister' , component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'details', component: ExpandDetailsComponent},
+  {path: 'myConference', component: MyConferencesComponent},
+  {path: 'papers', component: PapersComponent}
 ];
 
 @NgModule({
