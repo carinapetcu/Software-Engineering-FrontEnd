@@ -1,0 +1,74 @@
+#main-container{
+  display: grid;
+  grid-template-columns: 4fr 1fr 4fr;
+  background: #343036;
+}
+
+#menu{
+  margin-top: 7vh;
+  background: #343036;
+  grid-column: 2/3;
+  height: 93vh;
+  display: grid;
+  grid-template-rows: 3fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 3fr;
+}
+
+#co-chairs-view{
+  background: #666666;
+}
+#pc-members-view{
+  background: #5c5c5c;
+}
+#reviewers-view{
+  background: #525252;
+}
+
+#add-co-chairs-view{
+  margin-top: 7vh;
+  grid-column: 3/4;
+  background: #666666;
+  display: none;
+}
+#add-pc-members-view{
+  margin-top: 7vh;
+  grid-column: 3/4;
+  background: #5c5c5c;
+  display: none;
+}
+#add-reviewers-view{
+  margin-top: 7vh;
+  grid-column: 3/4;
+  background: #525252;
+  display: none;
+}
+
+.interact-object{
+  background: #858585;
+  color: #92140C;
+  font-family: 'Roboto Mono',SansSerif,Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  font-size: large;
+}
+
+.users-table{
+  grid-row: 2/3;
+  height: 70vh;
+}
+
+.view-container{
+  margin-top: 7vh;
+  grid-column: 1/2;
+  display: none;
+  grid-template-rows: 1fr 4fr;
+  text-align: center;
+  border: 20px #343036 solid;
+}
+
+.view-container h2{
+  color: #92140C;
+  font-family: 'Roboto Mono',SansSerif,Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  font-size: large;
+  margin-top: 5vh;
+
+}

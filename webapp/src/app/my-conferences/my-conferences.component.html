@@ -1,0 +1,143 @@
+<div id="main-container">
+  <div id="co-chairs-view" class="view-container" [style.display]="this.viewArray[0]">
+    <h2>Co-chairs</h2>
+    <div class="staff-table">
+      <mat-table [dataSource]="exampleCoChair">
+        <ng-container matColumnDef="fullName">
+          <mat-header-cell *matHeaderCellDef>Full name</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.fullName}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.email}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="affiliation">
+          <mat-header-cell *matHeaderCellDef>Affiliation</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.affiliation}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="webpage">
+          <mat-header-cell *matHeaderCellDef>Web page</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.webPage}}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="coChairColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: coChairColumns"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+  <div id="pc-members-view" class="view-container" [style.display]="this.viewArray[1]">
+    <h2>PC Members</h2>
+    <div class="staff-table">
+      <mat-table [dataSource]="examplePcMember">
+        <ng-container matColumnDef="fullName">
+          <mat-header-cell *matHeaderCellDef>Full name</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.fullName}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.email}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="hasPapers">
+          <mat-header-cell *matHeaderCellDef>Has enrolled paper</mat-header-cell>
+          <mat-cell *matCellDef="let row"><mat-icon>{{row.hasPaper}}</mat-icon></mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="pcMemberColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns:pcMemberColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+  <div id="reviewers-view" class="view-container" [style.display]="this.viewArray[2]">
+    <h2>Reviewers</h2>
+    <div class="staff-table">
+      <mat-table [dataSource]="exampleReviewer">
+        <ng-container matColumnDef="fullName">
+          <mat-header-cell *matHeaderCellDef>Full name</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.fullName}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.email}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="papersReviewed">
+          <mat-header-cell *matHeaderCellDef>No.papers reviewed</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.papersReviewed}}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="reviewerColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns:reviewerColumns"></mat-row>
+
+      </mat-table>
+    </div>
+  </div>
+
+  <div id="menu">
+    <div></div>
+    <button
+      class="interact-object"
+      mat-raised-button
+      (click)="changeView(0,'view')"
+      [style.background]=""
+    >
+      <mat-icon>keyboard_arrow_left</mat-icon>
+      View Co-Chairs
+    </button>
+    <div></div>
+    <button
+      class="interact-object"
+      mat-raised-button
+      (click)="changeView(1,'view')"
+      [style.background]=""
+    >
+      <mat-icon>keyboard_arrow_left</mat-icon>
+      View PC Members
+    </button>
+    <div></div>
+    <button
+      class="interact-object"
+      mat-raised-button
+      (click)="changeView(2,'view')"
+      [style.backgorund]=""
+    >
+      <mat-icon>keyboard_arrow_left</mat-icon>
+      View Reviewers
+    </button>
+    <div></div>
+    <button
+      class="interact-object"
+      mat-raised-button
+      (click)="changeView(0,'add')"
+      [style.background]=""
+    >Add Co-Chair
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+    <div></div>
+    <button
+      class="interact-object"
+      mat-raised-button
+      (click)="changeView(1,'add')"
+      [style.background]=""
+    >Add PC Members
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+    <div></div>
+    <button
+      class="interact-object"
+      mat-raised-button
+      (click)="changeView(2,'add')"
+      [style.background]=""
+    >Add Reviewers
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+
+  </div>
+
+  <div id="add-co-chairs-view" class="view-container" [style.display]="this.addArray[0]"></div>
+  <div id="add-pc-members-view" class="view-container" [style.display]="this.addArray[1]"></div>
+  <div id="add-reviewers-view" class="view-container" [style.display]="this.addArray[2]"></div>
+</div>

@@ -19,10 +19,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
-import {CMSUserService} from "./service/cmsuser.service";
-import {ConferenceService} from "./service/conference.service";
+import {CMSUserService} from './service/cmsuser.service';
+import {ConferenceService} from './service/conference.service';
 import { ExpandDetailsComponent } from './expand-details/expand-details.component';
 import { LoginComponent } from './login/login.component';
+import { MyConferencesComponent } from './my-conferences/my-conferences.component';
+import {MatTableModule} from '@angular/material/table';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,8 @@ import { LoginComponent } from './login/login.component';
     NavigationBarComponent,
     RegisterComponent,
     ExpandDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    MyConferencesComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatTableModule,
   ],
   providers: [CMSUserService, ConferenceService],
   bootstrap: [AppComponent]

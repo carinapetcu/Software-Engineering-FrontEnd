@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {switchMap} from "rxjs/operators";
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-expand-details',
