@@ -26,6 +26,9 @@ import { LoginComponent } from './login/login.component';
 import { MyConferencesComponent } from './my-conferences/my-conferences.component';
 import {MatTableModule} from '@angular/material/table';
 import { PapersComponent } from './papers/papers.component';
+import { PapersReviewsComponent } from './papers-reviews/papers-reviews.component';
+import { ReviewPageComponent } from './review-page/review-page.component';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -36,27 +39,30 @@ import { PapersComponent } from './papers/papers.component';
     ExpandDetailsComponent,
     LoginComponent,
     MyConferencesComponent,
-    PapersComponent
+    PapersComponent,
+    PapersReviewsComponent,
+    ReviewPageComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatExpansionModule,
-    MatGridListModule,
-    MatDividerModule,
-    MatCardModule,
-    MatFormFieldModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatTableModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatExpansionModule,
+        MatGridListModule,
+        MatDividerModule,
+        MatCardModule,
+        MatFormFieldModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatTableModule,
+        MatSelectModule,
+    ],
   providers: [CMSUserService, ConferenceService],
   bootstrap: [AppComponent]
 })
