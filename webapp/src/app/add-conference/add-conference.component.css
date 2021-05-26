@@ -17,7 +17,7 @@
 #form-container{
   grid-column: 2/3;
   display: grid;
-  grid-template-rows: 4fr 3fr 3fr 3fr 3fr 4fr;
+  grid-template-rows: 4fr 3fr 3fr 3fr 5fr 3fr 2fr;
   text-align: center;
 }
 

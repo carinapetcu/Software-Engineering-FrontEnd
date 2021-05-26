@@ -1,12 +1,12 @@
 export class Conference{
-  id: string;
+  id: number;
   name: string;
   description: string;
   edition: string;
   startDate: Date;
   endDate: Date;
 
-  constructor(id: string, name: string, description: string, edition: string, startDate: Date, endDate: Date) {
+  constructor(id: number, name: string, description: string, edition: string, startDate: Date, endDate: Date) {
     this.id = id;
     this.name = name;
     this.description = description;

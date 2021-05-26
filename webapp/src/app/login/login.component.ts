@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
       this.loginForm.controls.password.value)
       .subscribe(
         response => {
-          localStorage.setItem('userId', response.userId);
-          localStorage.setItem('conferenceId', response.conferenceId);
+          localStorage.setItem('userId', response.userID);
+          localStorage.setItem('conferenceId', response.conferenceID);
           localStorage.setItem('authority', response.authority);
           this.router.navigateByUrl('/home');
         },

@@ -5,9 +5,9 @@ import {Observable} from 'rxjs';
 
 @Injectable()
 export class CMSUserService {
-  private userUrl = 'http://localhost:8080/api/users';
+  private userUrl = 'http://localhost:8080';
   private httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'})
   };
 
   constructor(private httpClient: HttpClient) {
@@ -15,7 +15,7 @@ export class CMSUserService {
 
 
   addUser(user: CMSUser): Observable<HttpResponse<any>> {
-    const url = `${this.userUrl}/add`;
+    const url = `${this.userUrl}/signup`;
     return this.httpClient.post<HttpResponse<any>>(url, user);
   }
 
@@ -31,8 +31,9 @@ export class CMSUserService {
       password
     };
 
-    return this.httpClient.post(url, loginInfo, this.httpOptions);
+    return this.httpClient.post<any>(url, loginInfo, this.httpOptions);
   }
+
 
 
 }

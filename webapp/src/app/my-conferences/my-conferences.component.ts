@@ -26,12 +26,7 @@ export class MyConferencesComponent implements OnInit {
     affiliation: new FormControl(''),
     website: new FormControl(''),
   });
-  reviewerForm = this.formBuilder.group({
-    fullName: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    username: new FormControl(''),
-  });
+
 
 
 

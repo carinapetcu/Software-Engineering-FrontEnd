@@ -17,6 +17,13 @@
         </mat-form-field>
       </p>
       <p>
+        <mat-form-field appearance="fill" class="interact-object">
+          <mat-label>Conference description</mat-label>
+          <textarea id="feedback-area" matInput formControlName="description" placeholder="Write description here...">
+        </textarea>
+        </mat-form-field>
+      </p>
+      <p>
         <mat-form-field appearance="fill" class="date-picker">
           <mat-label>Enter a date range</mat-label>
           <mat-date-range-input [rangePicker]="picker">

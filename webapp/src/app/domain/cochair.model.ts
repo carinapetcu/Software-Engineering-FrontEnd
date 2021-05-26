@@ -1,14 +1,14 @@
 export class CoChair{
-  fullname: string;
+  fullName: string;
   email: string;
   affiliation: string;
-  webpage: string;
+  webPage: string;
 
-  constructor(fullname: string, email: string, affiliation: string, webpage: string) {
-    this.fullname = fullname;
+  constructor(fullName: string, email: string, affiliation: string, webPage: string) {
+    this.fullName = fullName;
     this.email = email;
     this.affiliation = affiliation;
-    this.webpage = webpage;
+    this.webPage = webPage;
   }
 }
 

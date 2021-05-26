@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 })
 export class NavigationBarComponent implements OnInit {
 
-  private logged = true;
+  private logged = false;
 
 
   constructor(
@@ -16,6 +16,9 @@ export class NavigationBarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('userId') !== null) {
+      this.logged = true;
+    }
   }
 
 
@@ -41,7 +44,10 @@ export class NavigationBarComponent implements OnInit {
   }
 
   signOut(): void {
-    this.logged = !this.logged;
+    localStorage.removeItem('userId');
+    localStorage.removeItem('conferenceId');
+    localStorage.removeItem('authority');
+    this.logged = false;
   }
 
   redirectToMyConference(): void {
@@ -54,5 +60,9 @@ export class NavigationBarComponent implements OnInit {
 
   redirectToAddConference(): void{
     this.router.navigate(['/addConference']);
+  }
+
+  hasConference(): boolean {
+    return localStorage.getItem('conferenceId') !== null;
   }
 }

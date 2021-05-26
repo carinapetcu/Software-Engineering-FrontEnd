@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
     const email = this.registerForm.controls.email.value;
     const username = this.registerForm.controls.username.value;
     const password = this.registerForm.controls.password.value;
-    const user: CMSUser = {id: 0, fullName, email, username, password} as CMSUser;
+    const user: CMSUser = {fullName, email, username, password} as CMSUser;
     this.cmsuserService.addUser(user).subscribe(
       response => {
         this.successfullyAdd = response.status === 200;

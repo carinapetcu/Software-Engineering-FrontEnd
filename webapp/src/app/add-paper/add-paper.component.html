@@ -13,10 +13,10 @@
       <input class="form-control" type="file" (change)="onChange($event)">
       <button (click)="onUpload()" class="btn btn-success">Upload</button>
     </div>
-    <input matInput>
+    <input matInput disabled>
   </mat-form-field>
 
-  <!-- Shareable short link of  uoloaded file -->
+  <!-- Shareable short link of  uploaded file -->
   <div class="container text-center jumbotron" *ngIf="shortLink">
     <h2> Visit Here</h2>
     <a href="{{shortLink}}">{{shortLink}}</a>
@@ -31,7 +31,7 @@
 
     <br><br>
   <mat-form-field appearance="fill">
-    <mat-label>Add new author</mat-label>
+    <mat-label>Add new author (email)</mat-label>
     <button mat-mini-fab color="accent" onclick="addAuthorField()">
       <mat-icon>plus_one</mat-icon>
     </button>

@@ -4,9 +4,9 @@ export class Paper{
   paperId: number;
   title: string;
   abstract: string;
-  authors: Array<Author>;
+  authors: Array<string>;
 
-  constructor(paperId: number, title: string, abstract: string, authors: Array<Author>){
+  constructor(paperId: number, title: string, abstract: string, authors: Array<string>){
     this.paperId = paperId;
     this.title = title;
     this.abstract = abstract;
