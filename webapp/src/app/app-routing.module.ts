@@ -8,6 +8,7 @@ import {MyConferencesComponent} from './my-conferences/my-conferences.component'
 import {PapersComponent} from './papers/papers.component';
 import {PapersReviewsComponent} from './papers-reviews/papers-reviews.component';
 import {ReviewPageComponent} from './review-page/review-page.component';
+import {AddConferenceComponent} from './add-conference/add-conference.component';
 
 const routes: Routes = [
   {path: 'register' , component: RegisterComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'papers', component: PapersComponent},
   {path: 'papersReviews', component: PapersReviewsComponent},
   {path: 'review' , component: ReviewPageComponent},
+  {path: 'addConference', component: AddConferenceComponent},
 ];
 
 @NgModule({
