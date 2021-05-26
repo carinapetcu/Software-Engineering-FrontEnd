@@ -9,4 +9,43 @@
   padding-top: 7vh;
   height: 93vh;
   background: #343036;
+  display: grid;
+
+  grid-template-columns: 2fr 6fr 2fr;
+}
+
+#form-container{
+  grid-column: 2/3;
+  display: grid;
+  grid-template-rows: 4fr 3fr 3fr 3fr 3fr 4fr;
+  text-align: center;
+}
+
+
+.interact-object{
+  background: #858585;
+  color: #92140C;
+  font-family: 'Roboto Mono',SansSerif,Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  font-size: large;
+  box-shadow: 3px 5px #29262B;
+}
+
+.date-picker{
+  background: #858585;
+  color: #92140C;
+  font-family: 'Roboto Mono',SansSerif,Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  font-size: large;
+}
+
+#add-conference-button{
+  margin-left: 7.5vw;
+  width: 15vw;
+  height: 10vh;
+}
+
+mat-form-field{
+  width: 15vw;
+  height: 10vh;
 }

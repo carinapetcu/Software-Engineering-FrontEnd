@@ -1,32 +1,34 @@
 <div id="main-container">
-  <div id="add-form-container">
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Conference name</mat-label>
-        <input matInput required placeholder="e.g. Summer conference 2015" formControlName="name">
-        <mat-icon matSuffix>face</mat-icon>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Edition</mat-label>
-        <input matInput required placeholder="XVII summer edition" formControlName="email">
-        <mat-icon matSuffix>mail</mat-icon>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Start date</mat-label>
-        <input matInput required placeholder="JohnDoe28" formControlName="username">
-        <mat-icon matSuffix>account_circle</mat-icon>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>End date</mat-label>
-        <input matInput required placeholder="JohnDoe28" formControlName="username">
-        <mat-icon matSuffix>account_circle</mat-icon>
-      </mat-form-field>
-    </p>
+  <div id="add-form-container" [formGroup]="conferenceForm">
+    <div id="form-container">
+      <div></div>
+      <p>
+        <mat-form-field appearance="fill" class="interact-object">
+          <mat-label>Conference name</mat-label>
+          <input matInput required placeholder="e.g. Summer conference 2015" formControlName="name">
+          <mat-icon matSuffix>face</mat-icon>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill" class="interact-object">
+          <mat-label>Edition</mat-label>
+          <input matInput required placeholder="XVII summer edition" formControlName="edition">
+          <mat-icon matSuffix>mail</mat-icon>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill" class="date-picker">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="Start date" formControlName="startDate">
+            <input matEndDate placeholder="End date" formControlName="endDate">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+      </p>
+      <button mat-raised-button (click)="addConference()" class="interact-object" id="add-conference-button">Add conference</button>
+      <div></div>
+    </div>
   </div>
 </div>

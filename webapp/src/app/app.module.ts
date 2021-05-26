@@ -31,6 +31,9 @@ import { ReviewPageComponent } from './review-page/review-page.component';
 import {MatSelectModule} from '@angular/material/select';
 import { AddConferenceComponent } from './add-conference/add-conference.component';
 import {AddPaperComponent } from './add-paper/add-paper.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -66,6 +69,8 @@ import {AddPaperComponent } from './add-paper/add-paper.component';
         MatInputModule,
         MatTableModule,
         MatSelectModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
     ],
   providers: [CMSUserService, ConferenceService],
   bootstrap: [AppComponent]

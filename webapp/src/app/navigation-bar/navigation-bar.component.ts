@@ -51,4 +51,8 @@ export class NavigationBarComponent implements OnInit {
   redirectToPapersReview(): void {
     this.router.navigate(['/papersReviews']);
   }
+
+  redirectToAddConference(): void{
+    this.router.navigate(['/addConference']);
+  }
 }
