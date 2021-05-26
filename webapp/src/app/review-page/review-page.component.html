@@ -1,0 +1,28 @@
+<div id="main-container">
+  <div id="review-form-container" [formGroup]="paperForm">
+    <p id="result-container" class="text-containers">
+      <mat-form-field appearance="fill">
+        <mat-label>Result</mat-label>
+        <mat-select formControlName="result">
+          <mat-option *ngFor="let result of results" [value]="result">
+            {{result}}
+          </mat-option>
+          </mat-select>
+      </mat-form-field>
+    </p>
+    <p id="feedback-container" class="text-containers">
+      <mat-form-field appearance="fill" id="feedback-field">
+        <mat-label>Feedback</mat-label>
+        <textarea id="feedback-area" matInput formControlName="feedback" placeholder="Write feedback here...">
+        </textarea>
+      </mat-form-field>
+    </p>
+    <button id="upload-button" class="interact-object" (click)="seeChanges()">Upload review</button>
+  </div>
+  <div id="paper-info-container">
+    <h1 class="text-containers">Title:  {{paper.title}}</h1>
+    <h2 class="text-containers">Abstract:</h2>
+    <p class="text-containers">{{paper.abstract}}</p>
+    <button mat-raised-button class="interact-object download-paper-button">Download paper<mat-icon matSuffix>archive</mat-icon></button>
+  </div>
+</div>

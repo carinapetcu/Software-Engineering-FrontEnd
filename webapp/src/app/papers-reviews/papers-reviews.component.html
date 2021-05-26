@@ -1,0 +1,63 @@
+<div id="main-container">
+  <div id="my-papers-container">
+    <div class="bar">
+      <h2>{{papersAssigned}}/{{availablePapersToReview}} papers assigned</h2>
+    </div>
+
+    <div id="papers-form-container" [formGroup]="papersForm">
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>No. papers to review</mat-label>
+          <input matInput placeholder="e.g. 1 (maximum 3)">
+          <mat-icon matSuffix>assignment</mat-icon>
+        </mat-form-field>
+      </p>
+    </div>
+      <button mat-raised-button class="interact-object">Send response</button>
+
+  </div>
+
+  <div></div>
+
+  <div id="papers-container">
+    <mat-table [dataSource]="papersExample">
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef class="interact-object">Title</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="paper-row">{{row.title}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="abstract">
+        <mat-header-cell *matHeaderCellDef class="interact-object">Download abstract</mat-header-cell>
+        <mat-cell *matCellDef="let row"  class="paper-row">
+          <button (click)="downloadAbstract(row.id)"  class="interact-object">
+            <mat-icon>cloud_download</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="authors">
+        <mat-header-cell *matHeaderCellDef class="interact-object">List of Authors</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="paper-row">
+          <ul>
+            <li *ngFor="let author of row.authors">{{author.fullName}}</li>
+          </ul>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="refuse-button">
+        <mat-header-cell *matHeaderCellDef class="interact-object">Refuse this paper</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="paper-row">
+          <button mat-raised-button class="interact-object"><mat-icon>close</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="review-button">
+        <mat-header-cell *matHeaderCellDef class="interact-object">Review paper</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="paper-row">
+          <button mat-raised-button class="interact-object" (click)="redirectToReview(row.id)">Review paper</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="paperColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns:paperColumns"></mat-row>
+    </mat-table>
+  </div>
+
+</div>

@@ -21,7 +21,7 @@
               Conferences
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <button mat-raised-button class="interact-object choice-button">My conferences</button>
+          <button mat-raised-button class="interact-object choice-button" (click)="redirectToMyConference()">My conferences</button>
           <mat-divider></mat-divider>
           <button mat-raised-button class="interact-object choice-button">On going conferences</button>
           <mat-divider></mat-divider>
@@ -39,7 +39,7 @@
           <mat-divider></mat-divider>
           <button mat-raised-button class="interact-object choice-button">See my papers</button>
           <mat-divider></mat-divider>
-          <button mat-raised-button class="interact-object choice-button">Paper reviews</button>
+          <button mat-raised-button class="interact-object choice-button" (click)="redirectToPapersReview()">Paper reviews</button>
         </mat-expansion-panel>
       </mat-accordion>
       <mat-accordion>
