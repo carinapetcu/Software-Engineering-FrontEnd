@@ -1,0 +1,72 @@
+.main-container{
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  background-color:#EBEBEB;
+}
+
+.add-paper-container{
+  grid-column: 4/5;
+  margin-top: 7.5vh;
+  height: 100vh;
+  background: #343036;
+  text-align: center;
+}
+
+h1{
+  color: #92140C;
+  font-weight: bolder;
+}
+
+h2{
+  color: #92140C;
+  position: relative;
+  right:380px;
+}
+
+mat-form-field{
+  background: #EBEBEB;
+  color: #92140C;
+  margin-top: 30px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bolder;
+  font-size: medium;
+  width: 1000px;
+}
+mat-label,input,mat-hint{
+  color: black;
+}
+
+button{
+  display:left;
+  position:relative;
+  right:90px;
+}
+
+.btn{
+  border: none;
+  color: white;
+  background-color: #29262B;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 1px;
+  cursor: pointer;
+  left:0px;
+}
+
+.submit-button{
+  background-color: #92140C;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position: relative;
+  right: 420px;
+}

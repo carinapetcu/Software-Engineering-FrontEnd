@@ -9,6 +9,7 @@ import {PapersComponent} from './papers/papers.component';
 import {PapersReviewsComponent} from './papers-reviews/papers-reviews.component';
 import {ReviewPageComponent} from './review-page/review-page.component';
 import {AddConferenceComponent} from './add-conference/add-conference.component';
+import {AddPaperComponent} from './add-paper/add-paper.component';
 
 const routes: Routes = [
   {path: 'register' , component: RegisterComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'papersReviews', component: PapersReviewsComponent},
   {path: 'review' , component: ReviewPageComponent},
   {path: 'addConference', component: AddConferenceComponent},
+  {path: 'addPaper' , component: AddPaperComponent}
 ];
 
 @NgModule({

@@ -28,8 +28,9 @@ import {MatTableModule} from '@angular/material/table';
 import { PapersComponent } from './papers/papers.component';
 import { PapersReviewsComponent } from './papers-reviews/papers-reviews.component';
 import { ReviewPageComponent } from './review-page/review-page.component';
-import {MatSelectModule} from "@angular/material/select";
+import {MatSelectModule} from '@angular/material/select';
 import { AddConferenceComponent } from './add-conference/add-conference.component';
+import {AddPaperComponent } from './add-paper/add-paper.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AddConferenceComponent } from './add-conference/add-conference.componen
     PapersComponent,
     PapersReviewsComponent,
     ReviewPageComponent,
-    AddConferenceComponent
+    AddConferenceComponent,
+    AddPaperComponent
   ],
     imports: [
         BrowserModule,

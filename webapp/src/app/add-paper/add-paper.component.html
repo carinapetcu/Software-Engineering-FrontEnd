@@ -1,0 +1,43 @@
+<div class="main-container">
+  <div class = "add-paper-container">
+    <br><h1>Enroll a paper</h1>
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Paper Abstract</mat-label>
+    <div class="text-center">
+      <br>
+      <input class="form-control" type="file" (change)="onChange($event)">
+      <button (click)="onUpload()" class="btn btn-success">Upload</button>
+    </div>
+    <input matInput>
+  </mat-form-field>
+
+  <!-- Shareable short link of  uoloaded file -->
+  <div class="container text-center jumbotron" *ngIf="shortLink">
+    <h2> Visit Here</h2>
+    <a href="{{shortLink}}">{{shortLink}}</a>
+  </div>
+
+  <!--Flag variable is used here-->
+  <div class="container" *ngIf="loading">
+    <h3>Loading ...</h3>
+  </div>
+    <br><br>
+  <button class="submit-button" type="submit">Submit paper</button>
+
+    <br><br>
+  <mat-form-field appearance="fill">
+    <mat-label>Add new author</mat-label>
+    <button mat-mini-fab color="accent" onclick="addAuthorField()">
+      <mat-icon>plus_one</mat-icon>
+    </button>
+    <input matInput>
+  </mat-form-field>
+
+  <div class="additionalAuthors"></div>
+</div>
+</div>
