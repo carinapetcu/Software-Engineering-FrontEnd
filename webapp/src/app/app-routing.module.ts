@@ -6,6 +6,8 @@ import {LoginComponent} from './login/login.component';
 import {ExpandDetailsComponent} from './expand-details/expand-details.component';
 import {MyConferencesComponent} from './my-conferences/my-conferences.component';
 import {PapersComponent} from './papers/papers.component';
+import {PapersReviewsComponent} from './papers-reviews/papers-reviews.component';
+import {ReviewPageComponent} from './review-page/review-page.component';
 
 const routes: Routes = [
   {path: 'register' , component: RegisterComponent},
@@ -15,7 +17,9 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'details', component: ExpandDetailsComponent},
   {path: 'myConference', component: MyConferencesComponent},
-  {path: 'papers', component: PapersComponent}
+  {path: 'papers', component: PapersComponent},
+  {path: 'papersReviews', component: PapersReviewsComponent},
+  {path: 'review' , component: ReviewPageComponent},
 ];
 
 @NgModule({

@@ -1,0 +1,71 @@
+.interact-object{
+  background: #858585;
+  color: #92140C;
+  font-family: 'Roboto Mono',SansSerif,Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  font-size: large;
+  box-shadow: 0 2px #29262B;
+}
+
+#main-container{
+  display: grid;
+  grid-template-rows: 1fr 0.3fr 5fr;
+  background: #5c5c5c;
+}
+
+#papers-container{
+  height: 83vh;
+  grid-row: 3/4;
+
+}
+
+mat-row{
+  box-shadow: 0.3px 5px #29262B;
+}
+
+.bar{
+  background: #343036;
+  box-shadow: 0 10px #29262B;
+  text-align: center;
+  grid-row: 1/2;
+  grid-column: 1/5;
+}
+
+#my-papers-container{
+  padding-top: 7vh;
+  height: 15vh;
+  grid-template-rows: 0.7fr 1fr;
+  grid-template-columns: 2fr 1fr 2fr 4fr;
+  display: grid;
+  grid-row: 1/2;
+}
+
+#papers-form-container{
+  height: 10vh;
+  grid-row: 2/3;
+  grid-column: 1/2;
+  margin-top: 4vh;
+  margin-left: 5vw;
+}
+
+#my-papers-container button{
+  grid-row: 2/3;
+  grid-column: 3/4;
+  height: 5vh;
+  margin-top: 5vh;
+}
+
+.paper-row{
+  color: #E22012;
+  font-family: 'Roboto Mono', SansSerif, Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
+}
+
+p{
+  color: #E22012;
+  font-family: 'Roboto Mono', SansSerif, Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
+  font-weight: bold;
+}
+
+
