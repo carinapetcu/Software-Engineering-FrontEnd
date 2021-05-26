@@ -29,6 +29,7 @@ import { PapersComponent } from './papers/papers.component';
 import { PapersReviewsComponent } from './papers-reviews/papers-reviews.component';
 import { ReviewPageComponent } from './review-page/review-page.component';
 import {MatSelectModule} from "@angular/material/select";
+import {AddPaperComponent } from './add-paper/add-paper.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {MatSelectModule} from "@angular/material/select";
     MyConferencesComponent,
     PapersComponent,
     PapersReviewsComponent,
-    ReviewPageComponent
+    ReviewPageComponent,
+    AddPaperComponent
   ],
     imports: [
         BrowserModule,
