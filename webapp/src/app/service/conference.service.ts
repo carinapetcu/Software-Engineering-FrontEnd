@@ -15,41 +15,23 @@ export class ConferenceService{
     return this.httpClient.get<any>(url);
   }
 
-  getConference(id: number): Observable<HttpResponse<any>>{
+  getConference(id: number): Observable<any>{
     const url = `${this.conferenceUrl}/${id}`;
-    return this.httpClient.get<HttpResponse<any>>(url);
+    return this.httpClient.get<any>(url);
   }
 
 
   addConference(conference: object): Observable<any>{
     return this.httpClient.post<any>(this.conferenceUrl, conference);
   }
+
+  addCoChairToConference(id: number, coChair: object): Observable<any>{
+    const url = `${this.conferenceUrl}/${id}/co_chair`;
+    return this.httpClient.post<any>(url, coChair);
+  }
+
+  addPcMemberToConference(id: number, pcMember: object): Observable<any>{
+    const url = `${this.conferenceUrl}/${id}/pc_member`;
+    return this.httpClient.post<any>(url, pcMember);
+  }
 }
-
-
-// @PostMapping("/conference")
-// public ResponseEntity<?> createConference(@RequestBody ConferenceRequest req) {
-//   try {
-//     var conferenceId = service.addConference(req);
-//     return new ResponseEntity<>(
-//       conferenceId,
-//       HttpStatus.CREATED
-//     );
-//   } catch (InvalidIDException e) {
-//     return new ResponseEntity<>(
-//       e.getMessage(),
-//       HttpStatus.BAD_REQUEST
-//     );
-//   } catch (ValidationException e) {
-//     return new ResponseEntity<>(
-//       e.getMessage(),
-//       HttpStatus.UNPROCESSABLE_ENTITY
-//     );
-//   } catch (ServerException e) {
-//     return new ResponseEntity<>(
-//       e.getMessage(),
-//       HttpStatus.INTERNAL_SERVER_ERROR
-//     );
-//   }
-//
-// }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ConferenceService} from '../service/conference.service';
 
 @Component({
   selector: 'app-expand-details',
@@ -21,11 +22,21 @@ export class ExpandDetailsComponent implements OnInit {
   conferenceId = '';
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
+    private service: ConferenceService,
   ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.conferenceId = id == null ? '' : id;
+    this.conferenceId = id == null ? '0' : id;
+
+    this.service.getConference(+this.conferenceId).subscribe(
+      response => this.conference = response
+    );
   }
 
+
+  redirectToAddPaper(): void {
+    this.router.navigate(['/addPaper', {id: this.conferenceId}]);
+  }
 }

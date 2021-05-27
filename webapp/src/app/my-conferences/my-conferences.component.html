@@ -119,35 +119,10 @@
     <div [formGroup]="coChairForm">
       <p>
         <mat-form-field appearance="fill">
-          <mat-label>Full name</mat-label>
-          <input matInput required placeholder="John doe">
-          <mat-icon matSuffix>face</mat-icon>
-          <mat-hint></mat-hint>
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="fill">
           <mat-label>Email</mat-label>
           <input matInput required placeholder="john_doe@net.com" formControlName="email">
           <mat-icon matSuffix>mail</mat-icon>
           <mat-hint></mat-hint>
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Username</mat-label>
-          <input matInput required placeholder="JohnDoe28" formControlName="username">
-          <mat-icon matSuffix>account_circle</mat-icon>
-          <mat-hint>Logging will be done with this field</mat-hint>
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Password</mat-label>
-          <input matInput required [type]="hide ? 'password' : 'text'" formControlName="password">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
         </mat-form-field>
       </p>
       <p>
@@ -164,7 +139,7 @@
           <mat-icon matSuffix>language</mat-icon>
         </mat-form-field>
       </p>
-      <button mat-raised-button class="interact-object">Add Co-chair</button>
+      <button mat-raised-button class="interact-object" (click)="addCoChair()">Add Co-chair</button>
     </div>
   </div>
   <div id="add-pc-members-view" class="view-container" [style.display]="this.addArray[1]">
@@ -172,35 +147,10 @@
     <div [formGroup]="pcMemberForm">
       <p>
         <mat-form-field appearance="fill">
-          <mat-label>Full name</mat-label>
-          <input matInput required placeholder="John doe">
-          <mat-icon matSuffix>face</mat-icon>
-          <mat-hint></mat-hint>
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="fill">
           <mat-label>Email</mat-label>
           <input matInput required placeholder="john_doe@net.com" formControlName="email">
           <mat-icon matSuffix>mail</mat-icon>
           <mat-hint></mat-hint>
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Username</mat-label>
-          <input matInput required placeholder="JohnDoe28" formControlName="username">
-          <mat-icon matSuffix>account_circle</mat-icon>
-          <mat-hint>Logging will be done with this field</mat-hint>
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Password</mat-label>
-          <input matInput required [type]="hide ? 'password' : 'text'" formControlName="password">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
         </mat-form-field>
       </p>
       <p>
@@ -217,7 +167,7 @@
           <mat-icon matSuffix>language</mat-icon>
         </mat-form-field>
       </p>
-      <button mat-raised-button class="interact-object">Add PC Member</button>
+      <button mat-raised-button class="interact-object" (click)="addPcMember()">Add PC Member</button>
     </div>
   </div>
 </div>

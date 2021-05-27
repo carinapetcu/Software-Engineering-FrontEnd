@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl} from "@angular/forms";
-import {Router} from "@angular/router";
+import {FormBuilder, FormControl} from '@angular/forms';
+import {Router} from '@angular/router';
+import {ConferenceService} from '../service/conference.service';
 
 
 @Component({
@@ -41,21 +42,22 @@ export class MyConferencesComponent implements OnInit {
   addArray = [ this.hideComponent, this.hideComponent, this.hideComponent, this.showComponent];
   shownAdd = 3;
 
+  coChairColumns = ['fullName', 'email', 'affiliation', 'webpage'];
+  reviewerColumns = ['fullName', 'email', 'papersReviewed'];
+  pcMemberColumns = ['fullName', 'email', 'hasPapers'];
+
+  // END design code ====================================================================
+
   exampleCoChair = [{fullName: 'John Doe', email: 'john_doe@email.com', affiliation: 'reddit', webPage: 'www.reddit.com'}];
   examplePcMember = [{fullName: 'John Doe', email: 'john_doe@email.com', hasPaper: 'done'}
     , {fullName: 'John Doe', email: 'john_doe@email.com', hasPaper: 'close'}];
   exampleReviewer = [{fullName: 'John Doe', email: 'john_doe', papersReviewed: 3}];
 
-  // END design code ====================================================================
-
-  coChairColumns = ['fullName', 'email', 'affiliation', 'webpage'];
-  reviewerColumns = ['fullName', 'email', 'papersReviewed'];
-  pcMemberColumns = ['fullName', 'email', 'hasPapers'];
-
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
+    private conferenceService: ConferenceService
   ) { }
 
   ngOnInit(): void {
@@ -91,6 +93,23 @@ export class MyConferencesComponent implements OnInit {
 
   redirectToPapers(): void{
     this.router.navigate(['papers']);
+  }
+
+  addCoChair(): void{
+      const id = localStorage.getItem('conferenceId');
+      const email = this.coChairForm.controls.email.value;
+      const affiliation = this.coChairForm.controls.affiliation.value;
+      const website = this.coChairForm.controls.website.value;
+      this.conferenceService.addCoChairToConference(+id, {email, affiliation, website}).subscribe();
+
+  }
+
+  addPcMember(): void{
+    const id = localStorage.getItem('conferenceId');
+    const email = this.pcMemberForm.controls.email.value;
+    const affiliation = this.pcMemberForm.controls.affiliation.value;
+    const website = this.pcMemberForm.controls.website.value;
+    this.conferenceService.addPcMemberToConference(+id, {email, affiliation, website}).subscribe();
   }
 
 }

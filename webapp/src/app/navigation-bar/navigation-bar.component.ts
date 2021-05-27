@@ -63,6 +63,6 @@ export class NavigationBarComponent implements OnInit {
   }
 
   hasConference(): boolean {
-    return localStorage.getItem('conferenceId') !== null;
+    return localStorage.getItem('conferenceId') !== 'null';
   }
 }

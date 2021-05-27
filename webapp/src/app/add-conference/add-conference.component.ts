@@ -42,7 +42,7 @@ export class AddConferenceComponent implements OnInit {
     this.service.addConference(conference).subscribe(
       response => {
         console.log(response);
-        localStorage.setItem('conferenceId', response.conferenceID);
+        localStorage.setItem('conferenceId', response);
         localStorage.setItem('authority', String(4));
       },
       response => {
