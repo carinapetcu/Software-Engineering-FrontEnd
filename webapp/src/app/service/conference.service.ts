@@ -20,8 +20,8 @@ export class ConferenceService{
     return this.httpClient.get<HttpResponse<any>>(url);
   }
 
-  addConference(conference: any): Observable<any>{
-    console.log(conference);
+
+  addConference(conference: object): Observable<any>{
     return this.httpClient.post<any>(this.conferenceUrl, conference);
   }
 }
