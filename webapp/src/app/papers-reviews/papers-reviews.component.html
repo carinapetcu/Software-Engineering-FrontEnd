@@ -8,19 +8,19 @@
       <p>
         <mat-form-field appearance="fill">
           <mat-label>No. papers to review</mat-label>
-          <input matInput placeholder="e.g. 1 (maximum 3)">
+          <input matInput placeholder="e.g. 1 (maximum 3)" formControlName="nrPapers">
           <mat-icon matSuffix>assignment</mat-icon>
         </mat-form-field>
       </p>
     </div>
-      <button mat-raised-button class="interact-object">Send response</button>
+      <button mat-raised-button class="interact-object" (click) ="sendResponse()" >Send response</button>
 
   </div>
 
   <div></div>
 
   <div id="papers-container">
-    <mat-table [dataSource]="papersExample">
+    <mat-table [dataSource]="papersReviews">
       <ng-container matColumnDef="title">
         <mat-header-cell *matHeaderCellDef class="interact-object">Title</mat-header-cell>
         <mat-cell *matCellDef="let row" class="paper-row">{{row.title}}</mat-cell>

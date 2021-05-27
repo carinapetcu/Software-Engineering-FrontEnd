@@ -15,8 +15,9 @@ export class AddPaperComponent implements OnInit {
 
   newAuthorAdded = false;
   authors = new Array<object>();
+  authorsString = new Array<string>();
   shortLink = '';
-  paperId: string;
+  conferenceId: string;
   loading = false; // Flag variable
   file: File | null; // Variable to store file
   authorColumns = ['email', 'delete'];
@@ -35,15 +36,17 @@ export class AddPaperComponent implements OnInit {
     private route: ActivatedRoute,
   ) {
     this.file = null;
+    this.conferenceId = this.route.snapshot.params.id;
   }
 
   ngOnInit(): void {
-    this.paperId = this.route.snapshot.params.id;
+
     const userId = localStorage.getItem('userId');
     if (userId != null) {
       this.userService.getUser(+userId).subscribe(
         response => {
           this.authors.push({email: response});
+          this.authorsString.push(response);
         }
       );
     }
@@ -81,27 +84,24 @@ export class AddPaperComponent implements OnInit {
     this.newAuthorAdded = true;
     const author = this.paperForm.controls.author.value;
     this.authors.push({email: author});
+    this.authorsString.push(author);
     this.authorDataSource.data = this.authors;
   }
 
   addPaper(): void {
     const title = this.paperForm.controls.title.value;
     const paperAbstract = this.paperForm.controls.abstract.value;
-    const authorsConverted = new Array<string>();
-    this.authors.forEach(author => authorsConverted.push(author.toString()));
-    const paper = new Paper(title, authorsConverted, paperAbstract);
-    const conferenceId = localStorage.getItem('conferenceId');
-    if (conferenceId !== 'null') {
-      this.paperService.addPaper(+conferenceId, paper).subscribe(
+    const paper = new Paper(title, this.authorsString, paperAbstract);
+    this.paperService.addPaper(+this.conferenceId, paper).subscribe(
         response => {
           const id = this.route.snapshot.paramMap.get('id');
           this.router.navigate(['/addPaper', {id}]);
         }
       );
-    }
   }
 
   removeAuthor(author: string): void {
-    this.authors.filter(authorItem => authorItem.toString() !== author && authorItem !== this.authors[0]);
+    this.authors.filter(authorItem => authorItem !== {email: author} && authorItem !== {email : this.authors[0]});
+    this.authorsString.filter(authorItem => authorItem !== author && authorItem !== this.authorsString[0]);
   }
 }

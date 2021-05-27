@@ -4,7 +4,8 @@ import {Router} from '@angular/router';
 import {ConferenceService} from '../service/conference.service';
 import {CoChair} from '../domain/cochair.model';
 import {PcMember} from '../domain/pcmember.model';
-import {Reviewer} from "../domain/reviewer.model";
+import {Reviewer} from '../domain/reviewer.model';
+import {PaperService} from '../service/paper.service';
 
 
 @Component({
@@ -63,7 +64,8 @@ export class MyConferencesComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private conferenceService: ConferenceService
+    private conferenceService: ConferenceService,
+    private paperService: PaperService
   ) { }
 
   ngOnInit(): void {
@@ -146,6 +148,11 @@ export class MyConferencesComponent implements OnInit {
         this.reviewers = response.dtos;
       }
     );
+  }
+
+  shufflePapers(): void{
+    const id = localStorage.getItem('conferenceId');
+    this.paperService.shufflePapers(+id).subscribe();
   }
 
 }
