@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
   getConferences(): void{
     this.conferenceService.getConferences()
       .subscribe(
-        conferences => this.conferences = conferences.body,
+        response => this.conferences = response.dtos,
         error => this.errorMessage = (error as any)
       );
   }

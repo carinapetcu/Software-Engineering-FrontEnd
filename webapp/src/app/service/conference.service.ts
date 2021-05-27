@@ -10,9 +10,9 @@ export class ConferenceService{
   constructor(private httpClient: HttpClient) {
   }
 
-  getConferences(): Observable<HttpResponse<any>>{
+  getConferences(): Observable<any>{
     const url = `${this.conferenceUrl}` + 's';
-    return this.httpClient.get<HttpResponse<any>>(url);
+    return this.httpClient.get<any>(url);
   }
 
   getConference(id: number): Observable<HttpResponse<any>>{
@@ -20,8 +20,9 @@ export class ConferenceService{
     return this.httpClient.get<HttpResponse<any>>(url);
   }
 
-  addConference(conference: Conference): Observable<HttpResponse<any>>{
-    return this.httpClient.post<HttpResponse<any>>(this.conferenceUrl, conference);
+  addConference(conference: any): Observable<any>{
+    console.log(conference);
+    return this.httpClient.post<any>(this.conferenceUrl, conference);
   }
 }
 
