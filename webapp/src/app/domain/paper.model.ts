@@ -2,12 +2,12 @@ import {Author} from './author.domain';
 
 export class Paper{
   title: string;
-  abstract: string;
+  paperAbstract: string;
   authorEmails: Array<string>;
 
-  constructor(title: string, authorEmails: Array<string>, abstract: string){
+  constructor(title: string, authorEmails: Array<string>, paperAbstract: string){
     this.title = title;
-    this.abstract = abstract;
+    this.paperAbstract = paperAbstract;
     this.authorEmails = authorEmails;
   }
 

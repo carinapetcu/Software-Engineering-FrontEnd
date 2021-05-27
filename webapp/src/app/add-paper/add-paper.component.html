@@ -8,21 +8,24 @@
       <input matInput required placeholder="Title" formControlName="title">
     </mat-form-field>
 
+    <div></div>
     <mat-form-field appearance="fill" class="interact-object">
       <mat-label>Abstract</mat-label>
       <textarea matInput required placeholder="Abstract" formControlName="abstract" id="text-area"></textarea>
       <mat-icon matSuffix>class</mat-icon>
     </mat-form-field>
+
     <div></div>
     <mat-form-field appearance="fill">
       <mat-label>Add new author (email)</mat-label>
-      <button mat-mini-fab color="accent" onclick="addAuthorField()">
+      <button mat-mini-fab color="accent" (click)="addAuthorField()" class="plusButton">
         <mat-icon>plus_one</mat-icon>
       </button>
       <input matInput placeholder="New author" formControlName="author">
     </mat-form-field>
+
   <div></div>
-    <mat-table [dataSource]="authors" id="authors-table">
+    <mat-table [dataSource]="authorDataSource" id="authors-table" *ngIf="authors.length !== 0">
       <ng-container matColumnDef="email">
         <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.email}}</mat-cell>
@@ -32,7 +35,7 @@
       <ng-container matColumnDef="delete">
         <mat-header-cell *matHeaderCellDef>Remove author</mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-raised-button class="interact-object">
+          <button mat-raised-button class="interact-object" (click)="removeAuthor(row.author)">
             <mat-icon>close</mat-icon>
           </button>
         </mat-cell>
@@ -41,7 +44,7 @@
       <mat-header-row *matHeaderRowDef="authorColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns:authorColumns;"></mat-row>
     </mat-table>
-
-    <button class="submit-button" type="submit">Submit paper</button>
+  <div></div>
+    <button class="submit-button" type="submit" (click)="addPaper()">Submit paper</button>
   </div>
 </div>
