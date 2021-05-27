@@ -1,10 +1,10 @@
 export class Reviewer{
-  fullname: string;
+  fullName: string;
   email: string;
   noOfPapersToReview: number;
 
-  constructor(fullname: string, email: string, noOfPapersToReview: number) {
-    this.fullname = fullname;
+  constructor(fullName: string, email: string, noOfPapersToReview: number) {
+    this.fullName = fullName;
     this.email = email;
     this.noOfPapersToReview = noOfPapersToReview;
   }

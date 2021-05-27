@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ConferenceService} from '../service/conference.service';
+import {CoChair} from '../domain/cochair.model';
+import {PcMember} from '../domain/pcmember.model';
+import {Reviewer} from "../domain/reviewer.model";
 
 
 @Component({
@@ -52,6 +55,9 @@ export class MyConferencesComponent implements OnInit {
   examplePcMember = [{fullName: 'John Doe', email: 'john_doe@email.com', hasPaper: 'done'}
     , {fullName: 'John Doe', email: 'john_doe@email.com', hasPaper: 'close'}];
   exampleReviewer = [{fullName: 'John Doe', email: 'john_doe', papersReviewed: 3}];
+  coChairs = Array<CoChair>();
+  pcMembers = Array<PcMember>();
+  reviewers = Array<Reviewer>();
 
 
   constructor(
@@ -110,6 +116,36 @@ export class MyConferencesComponent implements OnInit {
     const affiliation = this.pcMemberForm.controls.affiliation.value;
     const website = this.pcMemberForm.controls.website.value;
     this.conferenceService.addPcMemberToConference(+id, {email, affiliation, website}).subscribe();
+  }
+
+  getCoChairsFromConference(): void{
+    const id = localStorage.getItem('conferenceId');
+    this.conferenceService.getCoChairsFromConference(+id).subscribe(
+          response => {
+            console.log(response.dtos);
+            this.coChairs = response.dtos;
+          }
+    );
+  }
+
+  getPcMembersFromConference(): void{
+    const id = localStorage.getItem('conferenceId');
+    this.conferenceService.getPcMembersFromConference(+id).subscribe(
+      response => {
+        console.log(response);
+        this.pcMembers = response.dtos;
+      }
+    );
+  }
+
+  getReviewersFromConference(): void{
+    const id = localStorage.getItem('conferenceId');
+    this.conferenceService.getReviewersFromConference(+id).subscribe(
+      response => {
+        console.log(response);
+        this.reviewers = response.dtos;
+      }
+    );
   }
 
 }

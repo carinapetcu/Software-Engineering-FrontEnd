@@ -5,9 +5,11 @@
 }
 
 .add-paper-container{
-  grid-column: 4/5;
-  margin-top: 7.5vh;
-  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr 2fr 4fr 1fr 2fr 1fr 4fr 3fr 2fr;
+  grid-column: 2/3;
+  margin-top: 7vh;
+  height: 93vh;
   background: #343036;
   text-align: center;
 }
@@ -37,9 +39,7 @@ mat-label,input,mat-hint{
 }
 
 button{
-  display:left;
-  position:relative;
-  right:90px;
+
 }
 
 .btn{
@@ -53,7 +53,7 @@ button{
   font-size: 16px;
   margin: 2px 1px;
   cursor: pointer;
-  left:0px;
+
 }
 
 .submit-button{
@@ -67,6 +67,12 @@ button{
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  position: relative;
-  right: 420px;
+}
+
+#text-area{
+  height: 20vh;
+}
+
+#authors-table{
+  width: 40vw;
 }

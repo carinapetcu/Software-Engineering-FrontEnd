@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {CMSUserService} from '../service/cmsuser.service';
+import {FormBuilder, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-add-paper',
@@ -12,12 +14,30 @@ export class AddPaperComponent implements OnInit {
   shortLink = '';
   loading = false; // Flag variable
   file: File|null; // Variable to store file
+  authorColumns = ['email', 'delete'];
+  paperForm = this.formBuilder.group({
+    title: new FormControl(''),
+    abstract: new FormControl(''),
+    author: new FormControl(''),
+  });
 
-  constructor() {
+  constructor(
+    private userService: CMSUserService,
+    private formBuilder: FormBuilder,
+  ) {
       this.file = null;
   }
 
-  ngOnInit(): void{}
+  ngOnInit(): void{
+    const userId = localStorage.getItem('userId');
+    if (userId != null) {
+      this.userService.getUser(+userId).subscribe(
+        response => {
+          this.authors.push(response.dto.email);
+        }
+      );
+    }
+  }
 
 
   // On file Select
@@ -42,9 +62,14 @@ export class AddPaperComponent implements OnInit {
 //         );
     }
 
-  addAuthorField(author: string): void{
+  addAuthorField(): void{
       this.newAuthorAdded = true;
+      const author = this.paperForm.controls.author.value;
       this.authors.push(author);
+  }
+
+  addPaper(): void{
+
   }
 
 }

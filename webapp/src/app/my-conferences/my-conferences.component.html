@@ -2,7 +2,7 @@
   <div id="co-chairs-view" class="view-container" [style.display]="this.viewArray[0]">
     <h2>Co-chairs</h2>
     <div class="staff-table">
-      <mat-table [dataSource]="exampleCoChair">
+      <mat-table [dataSource]="coChairs">
         <ng-container matColumnDef="fullName">
           <mat-header-cell *matHeaderCellDef>Full name</mat-header-cell>
           <mat-cell *matCellDef="let row">{{row.fullName}}</mat-cell>
@@ -31,7 +31,7 @@
   <div id="pc-members-view" class="view-container" [style.display]="this.viewArray[1]">
     <h2>PC Members</h2>
     <div class="staff-table">
-      <mat-table [dataSource]="examplePcMember">
+      <mat-table [dataSource]="pcMembers">
         <ng-container matColumnDef="fullName">
           <mat-header-cell *matHeaderCellDef>Full name</mat-header-cell>
           <mat-cell *matCellDef="let row">{{row.fullName}}</mat-cell>
@@ -44,7 +44,7 @@
 
         <ng-container matColumnDef="hasPapers">
           <mat-header-cell *matHeaderCellDef>Has enrolled paper</mat-header-cell>
-          <mat-cell *matCellDef="let row"><mat-icon>{{row.hasPaper}}</mat-icon></mat-cell>
+          <mat-cell *matCellDef="let row"><mat-icon>{{row.hasPaper===true?'done':'close'}}</mat-icon></mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="pcMemberColumns"></mat-header-row>
@@ -55,7 +55,7 @@
   <div id="reviewers-view" class="view-container" [style.display]="this.viewArray[2]">
     <h2>Reviewers</h2>
     <div class="staff-table">
-      <mat-table [dataSource]="exampleReviewer">
+      <mat-table [dataSource]="reviewers">
         <ng-container matColumnDef="fullName">
           <mat-header-cell *matHeaderCellDef>Full name</mat-header-cell>
           <mat-cell *matCellDef="let row">{{row.fullName}}</mat-cell>
@@ -78,17 +78,17 @@
 
   <div id="menu">
     <div></div>
-    <button class="interact-object" mat-raised-button (click)="changeView(0,'view')">
+    <button class="interact-object" mat-raised-button (click)="changeView(0,'view');getCoChairsFromConference()">
       <mat-icon>keyboard_arrow_left</mat-icon>
       View Co-Chairs
     </button>
     <div></div>
-    <button class="interact-object" mat-raised-button (click)="changeView(1,'view')">
+    <button class="interact-object" mat-raised-button (click)="changeView(1,'view');getPcMembersFromConference()">
       <mat-icon>keyboard_arrow_left</mat-icon>
       View PC Members
     </button>
     <div></div>
-    <button class="interact-object" mat-raised-button (click)="changeView(2,'view')">
+    <button class="interact-object" mat-raised-button (click)="changeView(2,'view');getReviewersFromConference()">
       <mat-icon>keyboard_arrow_left</mat-icon>
       View Reviewers
     </button>

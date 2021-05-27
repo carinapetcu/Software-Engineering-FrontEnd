@@ -1,43 +1,47 @@
 <div class="main-container">
-  <div class = "add-paper-container">
-    <br><h1>Enroll a paper</h1>
-  <mat-form-field appearance="fill">
-    <mat-label>Title</mat-label>
-    <input matInput>
-  </mat-form-field>
+  <div class="add-paper-container" [formGroup]="paperForm">
+    <div></div>
+    <h1>Enroll a paper</h1>
+    <div></div>
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput required placeholder="Title" formControlName="title">
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Paper Abstract</mat-label>
-    <div class="text-center">
-      <br>
-      <input class="form-control" type="file" (change)="onChange($event)">
-      <button (click)="onUpload()" class="btn btn-success">Upload</button>
-    </div>
-    <input matInput disabled>
-  </mat-form-field>
+    <mat-form-field appearance="fill" class="interact-object">
+      <mat-label>Abstract</mat-label>
+      <textarea matInput required placeholder="Abstract" formControlName="abstract" id="text-area"></textarea>
+      <mat-icon matSuffix>class</mat-icon>
+    </mat-form-field>
+    <div></div>
+    <mat-form-field appearance="fill">
+      <mat-label>Add new author (email)</mat-label>
+      <button mat-mini-fab color="accent" onclick="addAuthorField()">
+        <mat-icon>plus_one</mat-icon>
+      </button>
+      <input matInput placeholder="New author" formControlName="author">
+    </mat-form-field>
+  <div></div>
+    <mat-table [dataSource]="authors" id="authors-table">
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.email}}</mat-cell>
+      </ng-container>
+      <div></div>
 
-  <!-- Shareable short link of  uploaded file -->
-  <div class="container text-center jumbotron" *ngIf="shortLink">
-    <h2> Visit Here</h2>
-    <a href="{{shortLink}}">{{shortLink}}</a>
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef>Remove author</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-raised-button class="interact-object">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="authorColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns:authorColumns;"></mat-row>
+    </mat-table>
+
+    <button class="submit-button" type="submit">Submit paper</button>
   </div>
-
-  <!--Flag variable is used here-->
-  <div class="container" *ngIf="loading">
-    <h3>Loading ...</h3>
-  </div>
-    <br><br>
-  <button class="submit-button" type="submit">Submit paper</button>
-
-    <br><br>
-  <mat-form-field appearance="fill">
-    <mat-label>Add new author (email)</mat-label>
-    <button mat-mini-fab color="accent" onclick="addAuthorField()">
-      <mat-icon>plus_one</mat-icon>
-    </button>
-    <input matInput>
-  </mat-form-field>
-
-  <div class="additionalAuthors"></div>
-</div>
 </div>

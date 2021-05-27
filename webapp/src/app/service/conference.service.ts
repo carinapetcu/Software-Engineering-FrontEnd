@@ -34,4 +34,19 @@ export class ConferenceService{
     const url = `${this.conferenceUrl}/${id}/pc_member`;
     return this.httpClient.post<any>(url, pcMember);
   }
+
+  getCoChairsFromConference(id: number): Observable<any>{
+    const url = `${this.conferenceUrl}/${id}/co_chairs`;
+    return this.httpClient.get<any>(url);
+  }
+
+  getPcMembersFromConference(id: number): Observable<any>{
+    const url = `${this.conferenceUrl}/${id}/pc_members`;
+    return this.httpClient.get<any>(url);
+  }
+
+  getReviewersFromConference(id: number): Observable<any>{
+    const url = `${this.conferenceUrl}/${id}/reviewers`;
+    return this.httpClient.get<any>(url);
+  }
 }

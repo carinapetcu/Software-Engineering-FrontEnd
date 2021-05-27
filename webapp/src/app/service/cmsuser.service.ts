@@ -19,9 +19,9 @@ export class CMSUserService {
     return this.httpClient.post<HttpResponse<any>>(url, user);
   }
 
-  getUser(id: number): Observable<HttpResponse<any>> {
-    const url = `${this.userUrl}/${id}`;
-    return this.httpClient.get<HttpResponse<any>>(url);
+  getUser(id: number): Observable<any> {
+    const url = `${this.userUrl}/user/${id}/email`;
+    return this.httpClient.get<any>(url);
   }
 
   login(username: string, password: string): Observable<any>{

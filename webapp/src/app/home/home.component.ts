@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     // this.conferencesMock.forEach(conference => {this.conferences.push(conference); });
   }
 
-  getConferences(): void{
+  getConferences(): void {
     this.conferenceService.getConferences()
       .subscribe(
         response => this.conferences = response.dtos,
@@ -42,5 +42,9 @@ export class HomeComponent implements OnInit {
 
   redirectDetails(conferenceId: number): void {
     this.router.navigate(['/details', {id: conferenceId}]);
+  }
+
+  redirectToAddPaper(id: number): void {
+    this.router.navigate(['/addPaper', {id}]);
   }
 }
